@@ -1,0 +1,163 @@
+
+
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.header-text h1 {
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.header-text p {
+  color: var(--outline);
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.stat-card {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon.lost { background: var(--tertiary-container); color: var(--tertiary); }
+.stat-icon.found { background: var(--secondary-container); color: var(--secondary); }
+.stat-icon.primary { background: var(--primary-container); color: var(--on-primary); }
+
+.stat-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.stat-info p {
+  font-size: 0.8rem;
+  color: var(--outline);
+  font-weight: 500;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .header-text p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  .header-actions {
+    width: 100%;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .header-actions button {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 10px 12px;
+    height: 44px;
+  }
+
+@media (max-width: 450px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    width: 100%;
+    padding: 16px;
+    gap: 16px;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+  }
+}
+
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .stat-info {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .stat-info h3 {
+    font-size: 1.1rem;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .stat-info p {
+    font-size: 0.65rem;
+    margin-top: 4px;
+    line-height: 1.2;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .view-toggle {
+    display: none;
+  }
+
+  .recent-activity {
+    padding-bottom: 24px;
+  }
+}

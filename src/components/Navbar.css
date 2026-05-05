@@ -1,0 +1,148 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 80px;
+  right: 0;
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #eef0f2;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.portal-branding {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1c1e;
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 24px;
+  border-right: 1px solid #eef0f2;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.user-profile:hover {
+  background: #f8f9fa;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-id {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #5f6368;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1c1e;
+}
+
+.avatar-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eef0f2;
+}
+
+.portal-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-arrow {
+  color: #5f6368;
+}
+
+.mobile-logout {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px;
+    height: 60px;
+  }
+  
+  .nav-right {
+    gap: 12px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    padding-right: 12px;
+  }
+
+  .mobile-logout {
+    display: flex;
+    color: #dc2626;
+  }
+
+  .mobile-logout:hover {
+    background: #fef2f2;
+  }
+
+  .search-btn {
+    display: none; /* We can add a search bar in the page content for mobile */
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 0;
+  }
+
+  .avatar-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .profile-arrow {
+    display: none;
+  }
+}
+

@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #7d53f6;
+  --primary-container: #9d7dfa;
+  --on-primary: #ffffff;
+  --secondary: #006e2a;
+  --secondary-container: #5cfd80;
+  --tertiary: #781800;
+  --tertiary-container: #ffdad2;
+  --background: #f8f9fe;
+  --surface: #f8f9fe;
+  --surface-container: #eceef3;
+  --surface-container-low: #f2f3f8;
+  --surface-container-lowest: #ffffff;
+  --outline: #7a7488;
+  --outline-variant: rgba(125, 83, 246, 0.1); /* Updated with purple */
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-blur: blur(24px);
+  --glass-shadow: 0 20px 40px rgba(125, 83, 246, 0.08); /* Updated with purple */
+
+  /* Fonts */
+  --font-display: 'Syne', sans-serif;
+  --font-logo: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: #191c1f;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+#root, .app-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--outline-variant);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+}
+
+/* Animations */
+@keyframes pulse-lost {
+  0% { box-shadow: 0 0 0 0 rgba(120, 24, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(120, 24, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(120, 24, 0, 0); }
+}
+
+@keyframes pulse-found {
+  0% { box-shadow: 0 0 0 0 rgba(0, 110, 42, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 110, 42, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 110, 42, 0); }
+}
+
+.pulse-lost {
+  animation: pulse-lost 2s infinite;
+}
+
+.pulse-found {
+  animation: pulse-found 2s infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Responsive Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+/* Shared Components */
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--outline-variant);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--outline);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: var(--surface-container);
+  color: var(--primary);
+}
+
+.icon-btn.active {
+  background: var(--primary-container);
+  color: var(--on-primary);
+}
+
+/* Base Grids */
+.items-grid, .browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  transition: all 0.3s ease;
+}
+
+/* List View Transition */
+.items-grid.list-view, .browse-grid.list-view {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Layout Utilities */
+.layout-with-sidebar {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 80px;
+  padding: 40px;
+  max-width: 1600px;
+  padding-top: 104px; /* Navbar height + padding */
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+    position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .items-grid, .browse-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 16px;
+  }
+}
+
